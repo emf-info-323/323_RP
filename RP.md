@@ -1,12 +1,12 @@
 <h1>🤔 RP - 323 - Programmation fonctionnelle</h1>
 
->[!TIP]
->**Référence Javascript:** <https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference>  
->**Tester du code JS** : <https://runjs.app/play>  
->**Convertir en PDF** : <https://marketplace.visualstudio.com/items?itemName=manuth.markdown-converter>
+> [!TIP] >**Référence Javascript:** <https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference>  
+> **Tester du code JS** : <https://runjs.app/play>  
+> **Convertir en PDF** : <https://marketplace.visualstudio.com/items?itemName=manuth.markdown-converter>
 
 <h1>Table des matières</h1>
 
+- [Introduction](#introduction)
 - [Opérateurs javascript super-cooool 😎](#opérateurs-javascript-super-cooool-)
   - [opérateur `?:`](#opérateur-)
   - [opérateur `??`](#opérateur--1)
@@ -36,7 +36,7 @@
   - [`padStart()` et `padEnd()` - aligner le contenu dans une chaîne de caractères](#padstart-et-padend---aligner-le-contenu-dans-une-chaîne-de-caractères)
 - [Console](#console)
   - [`console.log()` - Afficher un message sur la console](#consolelog---afficher-un-message-sur-la-console)
-  - [`console.info()`, `warn()` et `error()`  - Afficher un message sur la console (filtrables)](#consoleinfo-warn-et-error----afficher-un-message-sur-la-console-filtrables)
+  - [`console.info()`, `warn()` et `error()` - Afficher un message sur la console (filtrables)](#consoleinfo-warn-et-error---afficher-un-message-sur-la-console-filtrables)
   - [`console.table()` - Afficher tout un tableau ou un objet sur la console](#consoletable---afficher-tout-un-tableau-ou-un-objet-sur-la-console)
   - [`console.time()`, `timeLog()` et `timeEnd()` - Chronométrer une durée d'exécution](#consoletime-timelog-et-timeend---chronométrer-une-durée-dexécution)
 - [Tableaux](#tableaux)
@@ -70,55 +70,60 @@
 - [Fonctions](#fonctions)
   - [Déclaration de fonction](#déclaration-de-fonction)
   - [Fonctions immédiatement invoquées (IIFE)](#fonctions-immédiatement-invoquées-iife)
+- [Conclusion](#conclusion)
 
 <svg height="12" width="100%" style="padding-top:2em;padding-bottom:1em">
   <rect y="5" width="100%" height="5" fill="#7191B8"/>
 </svg>
 
+# Introduction
+
+> Votre introduction avec notamment les objectifs opérationnels du module.
+
 # Opérateurs javascript super-cooool 😎
 
 ## opérateur `?:`
 
->L'expression `question?valeur1:valeur2` retournera `valeur1` si `question` vaut `true` sinon elle retournera `valeur2`.
+> L'expression `question?valeur1:valeur2` retournera `valeur1` si `question` vaut `true` sinon elle retournera `valeur2`.
 
 ```javascript
 const age = 15;
-const resultat = ( age >= 18 ) ? 'majeur' : 'mineur';     // 'mineur'
+const resultat = age >= 18 ? 'majeur' : 'mineur'; // 'mineur'
 ```
 
 ## opérateur `??`
 
 Cet opérateur logique se nomme l'opérateur de "coalescence des nuls".
 
->Renvoie son opérande de droite lorsque son opérande de gauche vaut `null` ou `undefined` et qui renvoie son opérande de gauche sinon.
+> Renvoie son opérande de droite lorsque son opérande de gauche vaut `null` ou `undefined` et qui renvoie son opérande de gauche sinon.
 
 ```javascript
-const foo1 = null ?? "default";     // "default"
-const foo2 = 0 ?? 42;               // 0
+const foo1 = null ?? 'default'; // "default"
+const foo2 = 0 ?? 42; // 0
 ```
 
->[!CAUTION]
->Contrairement à l'opérateur logique OU (`||`), l'opérande de gauche sera également renvoyé s'il s'agit d'une valeur équivalente à `false` et pas seulement `null` et `undefined`.
+> [!CAUTION]
+> Contrairement à l'opérateur logique OU (`||`), l'opérande de gauche sera également renvoyé s'il s'agit d'une valeur équivalente à `false` et pas seulement `null` et `undefined`.
 >
->⚠️ En d'autres termes **ATTENTION** ‼️ lors de l'utilisation de `||` pour fournir une valeur par défaut à une variable, car on peut rencontrer des comportements inattendus lorsqu'on considère certaines valeurs comme correctes et utilisables (par exemple une chaine vide `''` ou `0`) ‼️
+> ⚠️ En d'autres termes **ATTENTION** ‼️ lors de l'utilisation de `||` pour fournir une valeur par défaut à une variable, car on peut rencontrer des comportements inattendus lorsqu'on considère certaines valeurs comme correctes et utilisables (par exemple une chaine vide `''` ou `0`) ‼️
 
 ```javascript
-const foo3 = 0 || 42;               // 42 => ATTENTION !
-const foo4 = 1 || 42;               // 1
-const foo5 = null || 'salut !';     // 'salut !'
-const foo6 = '' || 'salut !';       // 'salut !' => ATTENTION !
+const foo3 = 0 || 42; // 42 => ATTENTION !
+const foo4 = 1 || 42; // 1
+const foo5 = null || 'salut !'; // 'salut !'
+const foo6 = '' || 'salut !'; // 'salut !' => ATTENTION !
 ```
 
 ## opérateur `??=`
 
 Cet opérateur logique se nomme l'opérateur d'affectation de "coalescence des nuls", également connu sous le nom d'opérateur affectation logique nulle.
 
->Évalue l'opérande de droite et l'attribue à gauche **UNIQUEMENT si l'opérande de gauche est nulle** (`null` ou `undefined`).
+> Évalue l'opérande de droite et l'attribue à gauche **UNIQUEMENT si l'opérande de gauche est nulle** (`null` ou `undefined`).
 
 ```javascript
 const a = { duration: 50 };
-a.duration ??= 10;      // pas fait
-a.speed ??= 25;         // fait => { duration: 50, speed: 25 }
+a.duration ??= 10; // pas fait
+a.speed ??= 25; // fait => { duration: 50, speed: 25 }
 ```
 
 ## opérateur de décomposition 'spread' `...`
@@ -137,16 +142,16 @@ const [one, two, ...rest] = numbers;
 
 // Mariage d'objets avec mise à jour :-)
 const myVehicle = {
-  brand: 'Ford',
-  model: 'Mustang',
-  color: 'red'
-}
+    brand: 'Ford',
+    model: 'Mustang',
+    color: 'red',
+};
 const updateMyVehicle = {
-  type: 'car',
-  year: 2021, 
-  color: 'yellow'
-}
-const myUpdatedVehicle = {...myVehicle, ...updateMyVehicle}
+    type: 'car',
+    year: 2021,
+    color: 'yellow',
+};
+const myUpdatedVehicle = { ...myVehicle, ...updateMyVehicle };
 ```
 
 ## Déstructuration
@@ -155,10 +160,10 @@ L'opérateur de décomposition spread `...` sert aussi à isoler certains élém
 
 ```javascript
 const valeurs = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-const [a, b, ...c]= valeurs;
-console.log(a);     // 1
-console.log(b);     // 2
-console.log(c);     // [3, 4, 5, 6, 7, 8, 9, 10]
+const [a, b, ...c] = valeurs;
+console.log(a); // 1
+console.log(b); // 2
+console.log(c); // [3, 4, 5, 6, 7, 8, 9, 10]
 ```
 
 <svg height="12" width="100%" style="padding-top:2em;padding-bottom:1em">
@@ -172,7 +177,7 @@ Lien vers la documentation officielle : [https://developer.mozilla.org/fr/docs/W
 ## Obtenir la date et/ou heure actuelle
 
 ```javascript
-const maintenant = new Date();  // Obtenir l'un comme l'autre
+const maintenant = new Date(); // Obtenir l'un comme l'autre
 
 console.log(maintenant.toLocaleDateString()); // ex: "06.06.2025"
 console.log(maintenant.toLocaleTimeString()); // ex: "15:23:42"
@@ -368,10 +373,10 @@ Lien vers la documentation officielle : [https://developer.mozilla.org/fr/docs/W
 ## `console.log()` - Afficher un message sur la console
 
 ```javascript
-console.log("Coucou !");              // Coucou !
+console.log('Coucou !'); // Coucou !
 ```
 
-## `console.info()`, `warn()` et `error()`  - Afficher un message sur la console (filtrables)
+## `console.info()`, `warn()` et `error()` - Afficher un message sur la console (filtrables)
 
 Description à faire par vos soins...
 
@@ -657,19 +662,25 @@ SIMPLE, DROIT AU BUT, UTILE, STYLE PENSE-BÊTE
 **Standard**
 
 ```javascript
-function doStuff(a,b,c) { return a+b+c; };
+function doStuff(a, b, c) {
+    return a + b + c;
+}
 ```
 
 **Sous forme d'expression de fonction**
 
 ```javascript
-const doStuff = function(a,b,c) { return a+b+c; }
+const doStuff = function (a, b, c) {
+    return a + b + c;
+};
 ```
 
 **Sous forme d'expression de fonction anonyme**
 
 ```javascript
-const doStuff = (a,b,c) => { return a+b+c; }
+const doStuff = (a, b, c) => {
+    return a + b + c;
+};
 ```
 
 **Sous forme raccourcie**
@@ -695,3 +706,7 @@ ou
 ```javascript
 (() => { ... })()
 ```
+
+# Conclusion
+
+> Votre conclusion avec les éléments usuels
