@@ -1,8 +1,9 @@
 <h1>🤔 RP - 323 - Programmation fonctionnelle</h1>
 
-> [!TIP] >**Référence Javascript:** <https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference>  
-> **Tester du code JS** : <https://runjs.app/play>  
-> **Convertir en PDF** : <https://marketplace.visualstudio.com/items?itemName=manuth.markdown-converter>
+>[!TIP]
+>**Référence Javascript:** <https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference>  
+>**Tester du code JS** : <https://runjs.app/play>  
+>**Convertir en PDF** : <https://marketplace.visualstudio.com/items?itemName=manuth.markdown-converter>
 
 <h1>Table des matières</h1>
 
@@ -102,10 +103,10 @@ const foo1 = null ?? 'default'; // "default"
 const foo2 = 0 ?? 42; // 0
 ```
 
-> [!CAUTION]
-> Contrairement à l'opérateur logique OU (`||`), l'opérande de gauche sera également renvoyé s'il s'agit d'une valeur équivalente à `false` et pas seulement `null` et `undefined`.
+>[!CAUTION]
+>Contrairement à l'opérateur logique OU (`||`), l'opérande de gauche sera également renvoyé s'il s'agit d'une valeur équivalente à `false` et pas seulement `null` et `undefined`.
 >
-> ⚠️ En d'autres termes **ATTENTION** ‼️ lors de l'utilisation de `||` pour fournir une valeur par défaut à une variable, car on peut rencontrer des comportements inattendus lorsqu'on considère certaines valeurs comme correctes et utilisables (par exemple une chaine vide `''` ou `0`) ‼️
+>⚠️ En d'autres termes **ATTENTION** ‼️ lors de l'utilisation de `||` pour fournir une valeur par défaut à une variable, car on peut rencontrer des comportements inattendus lorsqu'on considère certaines valeurs comme correctes et utilisables (par exemple une chaine vide `''` ou `0`) ‼️
 
 ```javascript
 const foo3 = 0 || 42; // 42 => ATTENTION !
